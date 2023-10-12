@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<script src="../js/vue2.js"></script>
+<body>
+<!--v-on:click="showInfo"   只能调用该Vue实例中的showInfo-->
+<div id="app">
+    <button v-on:click="showInfo">点击我有提示</button>
+    <button v-on:click="showInfo2(100,$event)">点击我有提示</button>
+</div>
+
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false //关闭控制台提示
+
+    const vm = new Vue({
+        el:'#app',
+        data(){
+            return {
+                name:"xl"
+            }
+        },
+        methods:{
+            showInfo(event){  //默认会传一个事件对象  我们用event接收一下，就可以使用其中的数据了
+                 alert('欢迎')
+            },
+            showInfo2(number,event){  //接传的参数
+                console.log(event)
+                alert('欢迎')
+            }
+        }
+    })
+
+</script>
+</html>

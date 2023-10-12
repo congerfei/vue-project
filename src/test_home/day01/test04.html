@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/vue2.js"></script>
+<body>
+<!--容器和Vue实例是1对1的-->
+<div id="root">
+    {{ name }} --{{ age }}
+</div>
+
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false //关闭控制台提示
+
+    //Vue是一个构造函数,需要传一个配置对象，配置对象里面的参数是固定的 ，
+    const x = new Vue({
+        // el:"#root",  //el用于指定当前Vue实例为哪个容器服务
+        // data:{ //数据由el指定的容器使用  第一种对象式  第二种函数式(组件时需要用这种)
+        //     // name:"xl",
+        //     // age:"18"
+        //
+        // }
+        data:function() {  //可以省略成 data(){    一旦写成（）=> 就不是在是Vue管理了
+            console.log(this)  //Vue对象
+            return{
+                name:"xl",
+                age:"18"
+            }
+    }
+
+    })
+
+    console.log(x)
+
+    // 第二种写法  可以延迟在挂载
+    setTimeout(()=>{
+        x.$mount('#root')
+    },1000);
+</script>
+</html>

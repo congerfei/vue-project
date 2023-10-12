@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据代理</title>
+</head>
+<script src="../js/vue2.js"></script>
+<body>
+
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false //关闭控制台提示
+
+    let obj={x:100}
+    let obj2={y:100}
+
+    Object.defineProperties(obj2,'x',{
+        get(){
+            return obj.x
+        },
+
+        set(value){
+            obj.x = value
+        }
+    })
+
+</script>
+</html>

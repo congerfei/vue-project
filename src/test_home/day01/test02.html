@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态链接</title>
+</head>
+<script src="../js/vue2.js"></script>
+<body>
+
+<div id="app-1">
+    <!--    正常超链接写法-->
+    <a href="http://www.baidu.com">百度</a>
+    <!-- 直接写url肯定是不行的是，   插值语句写法,验证是会报错，不支持的-->
+    <a href="{{ url }}">百度</a>
+    <!--  v-bind   指令语法  -->
+    <a v-bind:href="url" x="hello">百度</a>
+    <a v-bind:href="url" :x="hello">百度</a>
+
+</div>
+
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false //关闭控制台提示
+
+    //Vue是一个构造函数,需要传一个配置对象，配置对象里面的参数是固定的 ，
+    const x = new Vue({
+        el:"#app-1",  //el用于指定当前Vue实例为哪个容器服务
+        data:{ //数据由el指定的容器使用
+            url:"http://www.baidu.com",
+            hello:"hello被替换了"
+        }
+
+    })
+</script>
+</html>

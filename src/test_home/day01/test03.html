@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定</title>
+</head>
+<script src="../js/vue2.js"></script>
+<body>
+<!--v-model:value  可以简写成v-model ，默认就是绑定value的值-->
+<div id="app-1">
+    单向绑定：<input type="text" :value="url" /><br/>
+    双向绑定：<input type="text" v-model:value="url" />
+
+</div>
+
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false //关闭控制台提示
+
+    //Vue是一个构造函数,需要传一个配置对象，配置对象里面的参数是固定的 ，
+    const x = new Vue({
+        el:"#app-1",  //el用于指定当前Vue实例为哪个容器服务
+        data:{ //数据由el指定的容器使用
+            url:"http://www.baidu.com",
+            hello:"hello被替换了"
+        }
+
+    })
+</script>
+</html>
